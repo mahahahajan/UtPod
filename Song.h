@@ -19,7 +19,6 @@ class Song {
 
     Song();
 
-    Song(int size);
 
     Song(string title, string artist, int size);
 
@@ -27,13 +26,13 @@ class Song {
 // overload ==, <,and > operators (used in sorting)
 // for < and > use artist, then title, then size
     string getTitle() const;
-    string setTitle();
+    void setTitle(string title);
 
     string getArtist() const;
-    string setArtist();
+    void setArtist(string artist);
 
     int getSize() const;
-    int setSize();
+    void setSize(int size);
 
    bool operator >(Song const &s) const;
    bool operator <(Song const &s) const;

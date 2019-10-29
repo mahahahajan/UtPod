@@ -2,20 +2,85 @@
 // (int) in MB the title and artist cannot be blank the size must be greater
 // than zero
 
-#include <cstdlib>
-#include <iostream>
-#include <string>
+// TODO: Make it so that the title artist and MB cannot be blank and size has to
+// TODO: be greater than 0
+// TODO: Handle other error cases
+// TODO: Comment all functions
+
+#include "Song.h"
 
 using namespace std;
 
-class Song {
-   private:
-	static const int NO_MEMORY = -1;
-	static const int NOT_FOUND = -2;
-	static const int MAX_MEMORY = 512;
+// string title;
+// string artist;
+// int size;
 
-   public:
-	char title;
-	string artist;
-	int size;
-};
+Song::Song() {
+	cout << "Stop being dumb enter a artist, title, and size" << endl;
+	title = "Young, Wild, and Free";
+	artist = "Snoop Dogg";
+	size = 5;
+}
+
+Song::Song(string _title, string _artist, int _size) {
+	title = _title;
+	artist = _artist;
+	if (_size <= 0) {
+		size = 5;
+	} else {
+		size = _size;
+	}
+}
+
+string Song::getArtist() const { return artist; }
+string Song::getTitle() const { return title; }
+int Song::getSize() const { return size; }
+void Song::setArtist(string _artist) { artist = _artist; }
+void Song::setTitle(string _title) { title = _title; }
+void Song::setSize(int _size) { size = _size; }
+
+bool Song::operator>(Song const &s) const {
+	if (artist.compare(s.getArtist()) == 0) {
+		// if both artists are the same
+		if (title.compare(s.getTitle()) == 0) {
+			// if both titles are the same
+			return size > s.getSize();
+		}
+	} else {
+		if (artist.compare(s.getArtist()) < 0) {
+			// comes first
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+bool Song::operator<(Song const &s) const {
+	if (artist.compare(s.getArtist()) == 0) {
+		// if both artists are the same
+		if (title.compare(s.getTitle()) == 0) {
+			// if both titles are the same
+			return size < s.getSize();
+		}
+	} else {
+		if (artist.compare(s.getArtist()) > 0) {
+			// this one comes second
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+bool Song::operator==(Song const &s) const {
+	return ((artist.compare(s.getArtist()) == 0) &&
+			(title.compare(s.getTitle()) == 0) && (size == s.getSize()));
+}
+// Song(string title, string artist, int size);
+
+// //     set and get all instance variables
+//  overload ==, <,and > operators (used in sorting)
+//  for < and > use artist, then title, then size
+
+// bool operator>(Song const &s) const;
+// bool operator<(Song const &s) const;
+// bool operator==(Song const &s) const;
