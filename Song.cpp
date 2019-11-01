@@ -14,20 +14,20 @@
 // int size;
 
 Song::Song() {
-	cout << "Stop being dumb enter a artist, title, and size" << endl;
-	title = "Young, Wild, and Free";
-	artist = "Snoop Dogg";
-	size = 5;
+
+    title = "Young, Wild, and Free";
+    artist = "Snoop Dogg";
+    size = 5;
 }
 
 Song::Song(string _title, string _artist, int _size) {
-	title = _title;
-	artist = _artist;
-	if (_size <= 0) {
-		size = 5;
-	} else {
-		size = _size;
-	}
+    title = _title;
+    artist = _artist;
+    if (_size <= 0) {
+        size = 5;
+    } else {
+        size = _size;
+    }
 }
 
 string Song::getArtist() const { return artist; }
@@ -38,40 +38,44 @@ void Song::setTitle(string _title) { title = _title; }
 void Song::setSize(int _size) { size = _size; }
 
 bool Song::operator>(Song const &s) const {
-	if (artist.compare(s.getArtist()) == 0) {
-		// if both artists are the same
-		if (title.compare(s.getTitle()) == 0) {
-			// if both titles are the same
-			return size > s.getSize();
-		}
-	} else {
-		if (artist.compare(s.getArtist()) < 0) {
-			// comes first
-			return true;
-		} else {
-			return false;
-		}
-	}
+    if (artist.compare(s.getArtist()) == 0) {
+        // if both artists are the same
+        if (title.compare(s.getTitle()) == 0) {
+            // if both titles are the same
+            return size > s.getSize();
+        }
+    } else {
+        if (artist.compare(s.getArtist()) < 0) {
+            // comes first
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 bool Song::operator<(Song const &s) const {
-	if (artist.compare(s.getArtist()) == 0) {
-		// if both artists are the same
-		if (title.compare(s.getTitle()) == 0) {
-			// if both titles are the same
-			return size < s.getSize();
-		}
-	} else {
-		if (artist.compare(s.getArtist()) > 0) {
-			// this one comes second
-			return true;
-		} else {
-			return false;
-		}
-	}
+    if (artist.compare(s.getArtist()) == 0) {
+        // if both artists are the same
+        if (title.compare(s.getTitle()) == 0) {
+            // if both titles are the same
+            return size < s.getSize();
+        }
+    } else {
+        if (artist.compare(s.getArtist()) > 0) {
+            // this one comes second
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 bool Song::operator==(Song const &s) const {
-	return ((artist.compare(s.getArtist()) == 0) &&
-			(title.compare(s.getTitle()) == 0) && (size == s.getSize()));
+    return ((artist.compare(s.getArtist()) == 0) &&
+            (title.compare(s.getTitle()) == 0) && (size == s.getSize()));
+}
+
+void Song::print(){
+    cout << "Artist: " << getArtist() << " | Title: " << getTitle() << " | Size: " << getSize() << endl;
 }
 // Song(string title, string artist, int size);
 
