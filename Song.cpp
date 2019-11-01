@@ -9,8 +9,6 @@
 
 #include "Song.h"
 
-using namespace std;
-
 // string title;
 // string artist;
 // int size;

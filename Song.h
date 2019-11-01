@@ -1,8 +1,11 @@
+#ifndef SONG_H
+#define SONG_H
+
 #include <cstdlib>
 #include <iostream>
 #include <string>
 
-
+using namespace std;
 
 class Song {
    private:
@@ -42,3 +45,5 @@ class Song {
 
     
 };
+
+#endif

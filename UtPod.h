@@ -13,6 +13,8 @@ class UtPod
       static const int NO_MEMORY = -1;
       static const int NOT_FOUND = -2;
       
+
+
       struct SongNode
       {
          Song s;
@@ -22,7 +24,9 @@ class UtPod
       SongNode *songs;  //the head pointer
       
       int memSize;
-   
+
+      int calcMemory();
+      
    public:
       //Default constructor
       //set the memory size to MAX_MEMORY
