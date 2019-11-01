@@ -46,6 +46,9 @@ int UtPod::addSong(Song const &s) {
 
 int UtPod::removeSong(Song const &s) {
     //if song to be removed is the first song
+    if(songs == NULL){
+        return NOT_FOUND;
+    }
     if(songs -> s == s){
         SongNode* tempNode = songs;
         songs = songs -> next;
