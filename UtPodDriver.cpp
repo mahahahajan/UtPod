@@ -11,67 +11,89 @@ You will want to do more complete testing.
 */
 #include <cstdlib>
 #include <iostream>
-#include "UtPod.h"
 #include "Song.h"
-
+#include "UtPod.h"
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
+    cout << endl;
+    cout << "WELCOME" << endl;
+    cout << endl;
     UtPod t;
-    
-    Song s1("Beatles", "Hey Jude1", 4);
+    cout << "Created Pod with memory: " << t.getTotalMemory() << endl;
+    Song s1("Brittany Spears", "Toxic", 100);
     int result = t.addSong(s1);
-    cout << "result = " << result << endl;
+    Song s2("Pitbull", "Hotel Room Service", 12);
+    result = t.addSong(s2);
+    Song s3("Maroon 5", "Memories", 8);
+    result = t.addSong(s3);
+    Song s4("Lizzo", "Truth Hurts", 9);
+    result = t.addSong(s4);
+    Song s5("blackbear", "hot girl bummer", 25);
+    result = t.addSong(s5);
+    Song s6("blackbear", "IDFC", 13);
+    result = t.addSong(s6);
+
+    cout << "Song List: " << endl;
+    t.sortSongList();
+    t.showSongList();
     
-    // t.showSongList();
-          
-    // Song s2("Beatles", "Hey Jude2", 5);
-    // result = t.addSong(s2);
-    // cout << "result = " << result << endl;
+    cout << endl;
+    cout << "REMOVE SONG DEMO " << endl;
+    result = t.removeSong(s3);
+    cout << "SONG DELETED" << endl;
+    cout << "New Song List: " << endl;
+
+    t.showSongList();
+    cout << "REMAINING MEMORY: " << t.getRemainingMemory() << endl;
+    cout << endl;
+    cout << "SHUFFLE DEMO" << endl;
+    t.shuffle();
+    cout << "SHUFFLED LIST: " <<endl;
+    t.showSongList();
     
-    // t.showSongList();
-       
-    // Song s3("Beatles", "Hey Jude3", 6);
-    // result = t.addSong(s3);
-    // cout << "result = " << result << endl;
-       
-    // Song s4("Beatles", "Hey Jude4", 7);
-    // result = t.addSong(s4);
-    // cout << "result = " << result << endl;
-       
-    // Song s5("Beatles", "Hey Jude5", 241);
-    // result = t.addSong(s5);
-    // cout << "add result = " << result << endl;
+    cout << endl;
+    cout << "CLEAR MEMORY DEMO" << endl;
+    t.clearMemory();
+    cout << "MEMORY CLEARED" << endl;
+
+    UtPod x(400);
+    cout << "Created Pod with memory: " << x.getTotalMemory() << endl;
+   
+    result = x.addSong(s1);
     
-    // t.showSongList();
+    result = x.addSong(s2);
     
-    // result = t.removeSong(s2);
-    // cout << "delete result = " << result << endl;
-  
-    // result = t.removeSong(s3);
-    // cout << "delete result = " << result << endl;
+    result = x.addSong(s3);
+    
+    result = x.addSong(s4);
+   
+    result = x.addSong(s5);
+    
+    result = x.addSong(s6);
+
+    cout << "Song List: " << endl;
+    x.sortSongList();
+    x.showSongList();
+    
+    // cout << endl;
+    // cout << "REMOVE SONG DEMO " << endl;
+    // result = x.removeSong(s3);
+    // cout << "SONG DELETED" << endl;
+    // cout << "New Song List: " << endl;
 
     // t.showSongList();
+    cout << "REMAINING MEMORY: " << x.getRemainingMemory() << endl;
+    cout << endl;
+    cout << "SHUFFLE DEMO" << endl;
+    x.shuffle();
+    cout << "SHUFFLED LIST: " <<endl;
+    x.showSongList();
     
-    // result = t.removeSong(s1);
-    // cout << "delete result = " << result << endl;
- 
-    // result = t.removeSong(s5);
-    // cout << "delete result = " << result << endl;
-    
-    // result = t.removeSong(s4);
-    // cout << "delete result = " << result << endl;
-    
-    
-    // t.showSongList();
-    
-    // result = t.addSong(s5);
-    // cout << "add result = " << result << endl;
-    
-    // t.showSongList();
-    // cout << "memory = " << t.getRemainingMemory() << endl;
-    
-
+    cout << endl;
+    cout << "CLEAR MEMORY DEMO" << endl;
+    x.clearMemory();
+    cout << "MEMORY CLEARED" << endl;
 }

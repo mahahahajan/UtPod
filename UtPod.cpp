@@ -44,6 +44,8 @@ int UtPod::addSong(Song const &s) {
     return -1;
 }
 
+
+
 int UtPod::removeSong(Song const &s) {
     //if song to be removed is the first song
     if(songs == NULL){
@@ -72,12 +74,40 @@ int UtPod::removeSong(Song const &s) {
     }
 }
 
+int UtPod::numSongs() {
+    SongNode *tempNode = songs;
+    int counter = 0;
+    while (tempNode != NULL) {
+        counter++;
+        tempNode = tempNode->next;
+    }
+    return counter;
+}
+
 void UtPod::shuffle() {
-    // if (numSongs > 2) {
-    // 	// Do something
-    // } else {
-    // 	cout << "Not enough songs" << endl;
-    // }
+    int numSongs = this -> numSongs();
+
+    if(numSongs > 2){
+        SongNode* tempNode = songs;
+        SongNode* randomNode = songs;
+        srand(time(0));
+        while(tempNode != NULL){
+
+            int num = rand() % (numSongs - (rand() % 2));
+            if(num > 2){
+                for(int i = 0; i < num; i++){
+                    if(randomNode -> next != NULL){
+                        randomNode = randomNode -> next;
+                    }
+                }
+            }
+
+            swap(randomNode ->s, tempNode -> s);
+            tempNode = tempNode -> next;
+        }
+
+    }
+
 }
 
 void UtPod::showSongList() {
@@ -87,8 +117,38 @@ void UtPod::showSongList() {
         tempNode = tempNode -> next;
     }
 }
+void UtPod::swap(Song &s1, Song &s2){
+    Song temp = s1;
+    s1  = s2;
+    s2 = temp;
+}
 
-void UtPod::sortSongList() {}
+void UtPod::sortSongList() {
+    int flag = 0;
+    SongNode* tempNode = songs;
+    while(tempNode != NULL){
+        if(tempNode -> next != NULL){
+            if(tempNode -> s < (tempNode -> next) -> s ){
+                swap(tempNode -> s, tempNode ->next -> s);
+                flag += 1;
+
+            }
+            tempNode = tempNode -> next;
+        }
+
+
+        if(tempNode -> next == NULL){
+            if(flag != 0 ){
+                tempNode = songs;
+                flag = 0;
+            }
+            else{
+                tempNode = tempNode -> next;
+            }
+        }
+    }
+
+}
 
 void UtPod::clearMemory() {
     while(songs != NULL){
@@ -108,5 +168,5 @@ int UtPod::getRemainingMemory() {
 }
 
 UtPod::~UtPod() {
-    clearMemory();
+   clearMemory();
 }

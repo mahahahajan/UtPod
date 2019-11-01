@@ -23,7 +23,7 @@ public:
     Song();
 
 
-    Song(string title, string artist, int size);
+    Song(string artist, string title, int size);
 
 //     set and get all instance variables
 // overload ==, <,and > operators (used in sorting)

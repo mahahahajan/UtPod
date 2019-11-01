@@ -20,7 +20,7 @@ Song::Song() {
     size = 5;
 }
 
-Song::Song(string _title, string _artist, int _size) {
+Song::Song(string _artist, string _title, int _size) {
     title = _title;
     artist = _artist;
     if (_size <= 0) {
@@ -37,12 +37,20 @@ void Song::setArtist(string _artist) { artist = _artist; }
 void Song::setTitle(string _title) { title = _title; }
 void Song::setSize(int _size) { size = _size; }
 
-bool Song::operator>(Song const &s) const {
+bool Song::operator >(Song const &s) const {
     if (artist.compare(s.getArtist()) == 0) {
         // if both artists are the same
         if (title.compare(s.getTitle()) == 0) {
             // if both titles are the same
             return size > s.getSize();
+        }
+        else{
+            if(title.compare(s.getTitle())< 0){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     } else {
         if (artist.compare(s.getArtist()) < 0) {
@@ -59,6 +67,14 @@ bool Song::operator<(Song const &s) const {
         if (title.compare(s.getTitle()) == 0) {
             // if both titles are the same
             return size < s.getSize();
+        }
+        else{
+            if(title.compare(s.getTitle()) > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     } else {
         if (artist.compare(s.getArtist()) > 0) {

@@ -22,6 +22,8 @@ private:
     SongNode *songs;  //the head pointer
 
     int memSize;
+    void swap(Song &s1, Song &s2);
+    int numSongs();
 
 public:
     //Default constructor
