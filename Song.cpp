@@ -38,14 +38,14 @@ void Song::setTitle(string _title) { title = _title; }
 void Song::setSize(int _size) { size = _size; }
 
 bool Song::operator >(Song const &s) const {
-    if (artist.compare(s.getArtist()) == 0) {
+    if (artist == s.getArtist()) {
         // if both artists are the same
-        if (title.compare(s.getTitle()) == 0) {
+        if (title == s.getTitle()) {
             // if both titles are the same
             return size > s.getSize();
         }
         else{
-            if(title.compare(s.getTitle())< 0){
+            if(title < s.getTitle()){
                 return true;
             }
             else{
@@ -53,7 +53,7 @@ bool Song::operator >(Song const &s) const {
             }
         }
     } else {
-        if (artist.compare(s.getArtist()) < 0) {
+        if (artist < s.getArtist()) {
             // comes first
             return true;
         } else {
@@ -62,14 +62,14 @@ bool Song::operator >(Song const &s) const {
     }
 }
 bool Song::operator<(Song const &s) const {
-    if (artist.compare(s.getArtist()) == 0) {
+    if (artist == s.getArtist()) {
         // if both artists are the same
-        if (title.compare(s.getTitle()) == 0) {
+        if (title == s.getTitle()) {
             // if both titles are the same
             return size < s.getSize();
         }
         else{
-            if(title.compare(s.getTitle()) > 0){
+            if(title > s.getTitle()){
                 return true;
             }
             else{
@@ -77,7 +77,7 @@ bool Song::operator<(Song const &s) const {
             }
         }
     } else {
-        if (artist.compare(s.getArtist()) > 0) {
+        if (artist > s.getArtist()) {
             // this one comes second
             return true;
         } else {
@@ -86,8 +86,8 @@ bool Song::operator<(Song const &s) const {
     }
 }
 bool Song::operator==(Song const &s) const {
-    return ((artist.compare(s.getArtist()) == 0) &&
-            (title.compare(s.getTitle()) == 0) && (size == s.getSize()));
+    return ((artist == s.getArtist()) &&
+            (title == s.getTitle()) && (size == s.getSize()));
 }
 
 void Song::print(){

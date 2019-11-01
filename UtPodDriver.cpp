@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     result = x.addSong(s4);
    
     result = x.addSong(s5);
-    
+
     result = x.addSong(s6);
 
     cout << "Song List: " << endl;
@@ -90,6 +90,12 @@ int main(int argc, char *argv[])
     cout << "SHUFFLE DEMO" << endl;
     x.shuffle();
     cout << "SHUFFLED LIST: " <<endl;
+    x.showSongList();
+
+    cout << endl;
+    cout << "SORTED DEMO" << endl;
+    x.sortSongList();
+    cout << "SORTED LIST: " <<endl;
     x.showSongList();
     
     cout << endl;
